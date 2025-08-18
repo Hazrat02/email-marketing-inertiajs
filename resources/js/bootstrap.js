@@ -33,3 +33,39 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+
+
+import '../assets/js/bootstrap.bundle.min.js'
+
+import  '../assets/js/tiny-slider.js'
+import '../assets/js/tiny-slider-init.js'
+import  '../assets/js/feather2.min.js' 
+import  '../assets/js/switcher.js'
+import  '../assets/js/app.js'
+
+// import initMain from '../assets/js/app.js'
+// import initMain2 from '../assets/js/bootstrap.bundle.min.js'
+// import initMain3 from '../assets/js/feather.min.js' 
+// import initMain4 from '../assets/js/switcher.js'
+// import initMain5 from '../assets/js/tiny-slider-init.js'
+// import initMain6 from '../assets/js/tiny-slider.js'
+
+
+
+
+// // Helper to run all template scripts
+// function initTemplateScripts() {
+//     initMain();
+//     initMain2();
+//     initMain3();
+//     initMain4();
+//     initMain5();
+//     initMain6();
+// }
+
+// // Run on first load
+// document.addEventListener("DOMContentLoaded", initTemplateScripts);
+
+// // Run again after every Inertia navigation
+// document.addEventListener("inertia:finish", initTemplateScripts);

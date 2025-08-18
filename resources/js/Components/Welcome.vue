@@ -1,104 +1,178 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 </script>
 
 <template>
-    <div>
-        <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
-            <ApplicationLogo class="block h-12 w-auto" />
+        <!-- Navbar -->
+        <!-- Navbar STart -->
+        <header id="topnav" class="defaultscroll sticky">
+            <div class="container">
+                <!-- Logo container-->
+                <a class="logo" href="index.html">
+                    <span class="logo-light-mode">
+                        <img src="{{ asset('assets/img/logo.webp')}}" class="l-dark" style="width: 130px" alt="">
+                        <img src="{{ asset('assets/img/logo.webp')}}" class="l-light" style="width: 130px" alt="">
+                    </span>
+                    <img src="{{ asset('assets/img/logo.webp')}}"  class="logo-dark-mode" style="width: 130px" alt="">
+                </a>
 
-            <h1 class="mt-8 text-2xl font-medium text-gray-900">
-                Welcome to your Jetstream application!
-            </h1>
-
-            <p class="mt-6 text-gray-500 leading-relaxed">
-                Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed
-                to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
-                you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
-                ecosystem to be a breath of fresh air. We hope you love it.
-            </p>
-        </div>
-
-        <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
-            <div>
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                    </svg>
-                    <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                        <a href="https://laravel.com/docs">Documentation</a>
-                    </h2>
+                <div class="menu-extras">
+                    <div class="menu-item">
+                        <!-- Mobile menu toggle-->
+                        <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </div>
                 </div>
 
-                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                    Laravel has wonderful documentation covering every aspect of the framework. Whether you're new to the framework or have previous experience, we recommend reading all of the documentation from beginning to end.
-                </p>
+                <ul class="buy-button list-inline mb-0">
+                    <li class="list-inline-item mb-0 me-1">
+                        <div class="dropdown">
+                            <button type="button" class="btn dropdown-toggle border-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="uil uil-search text-white title-dark btn-icon-light fs-5 align-middle"></i>
+                                <i class="uil uil-search text-dark btn-icon-dark fs-5 align-middle"></i>
+                            </button>
+                            <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 p-0" style="width: 300px;">
+                                <div class="search-bar">
+                                    <div id="itemSearch" class="menu-search mb-0">
+                                        <form role="search" method="get" id="searchItemform" class="searchform">
+                                            <input type="text" class="form-control border rounded" name="s" id="searchItem" placeholder="Search...">
+                                            <input type="submit" id="searchItemsubmit" value="Search">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mb-0">
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-icon rounded-circle btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="shopping-cart" class="icons"></i></button>
+                            <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 p-4" style="width: 300px;">
+                                <div class="pb-4">
+                                    <a href="javascript:void(0)" class="d-flex align-items-center">
+                                        <img src="https://shreethemes.in/hostick/layouts/images/shop/com.jpg" class="shadow rounded" style="max-height: 64px;" alt="">
+                                        <div class="flex-1 text-start ms-3">
+                                            <h6 class="text-dark mb-0">.com</h6>
+                                            <p class="text-muted mb-0">$10 X 2</p>
+                                        </div>
+                                        <h6 class="text-dark mb-0">$10</h6>
+                                    </a>
+                                </div>
 
-                <p class="mt-4 text-sm">
-                    <a href="https://laravel.com/docs" class="inline-flex items-center font-semibold text-indigo-700">
-                        Explore the documentation
+                                <div class="d-flex align-items-center justify-content-between pt-4 border-top">
+                                    <h6 class="text-dark mb-0">Total($):</h6>
+                                    <h6 class="text-dark mb-0">$10</h6>
+                                </div>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="ml-1 w-5 h-5 fill-indigo-500">
-                            <path fill-rule="evenodd" d="M5 10a.75.75 0 01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5 3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0 11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </p>
-            </div>
+                                <div class="mt-3 text-center">
+                                    <a href="javascript:void(0)" class="btn btn-primary me-2">View Cart</a>
+                                    <a href="javascript:void(0)" class="btn btn-primary">Checkout</a>
+                                </div>
+                                <p class="text-muted text-start mt-1 mb-0">*T&C Apply</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mb-0">
+                        <a href="#" class="btn btn-icon rounded-circle btn-primary" data-bs-toggle="modal" data-bs-target="#wishlist"><i data-feather="heart" class="icons"></i></a>
+                    </li>
+                    <li class="list-inline-item mb-0">
+                        <div class="dropdown dropdown-primary">
+                            <button type="button" class="btn btn-icon rounded-circle btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="user" class="icons"></i></button>
+                            <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 py-3" style="width: 200px;">
+                                <a class="dropdown-item text-dark" href="my-account.html"><i class="uil uil-user align-middle me-1"></i> Account</a>
+                                <a class="dropdown-item text-dark" href="#"><i class="uil uil-clipboard-notes align-middle me-1"></i> Order History</a>
+                                <a class="dropdown-item text-dark" href="#"><i class="uil uil-arrow-circle-down align-middle me-1"></i> Download</a>
+                                <div class="dropdown-divider my-3 border-top"></div>
+                                <a class="dropdown-item text-dark" href="page-login.html"><i class="uil uil-sign-out-alt align-middle me-1"></i> Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul><!--end login button-->
+        
+                <div id="navigation">
+                    <!-- Navigation Menu-->   
+                    <ul class="navigation-menu nav-light">
+                        <li class="has-submenu parent-parent-menu-item">
+                            <a href="javascript:void(0)" class="sub-menu-item">Home</a><span class="menu-arrow"></span>
+                            <ul class="submenu">
+                                <li><a href="index.html" class="sub-menu-item">Home One</a></li>
+                                <li><a href="index-two.html" class="sub-menu-item">Home Two</a></li>
+                            </ul>
+                        </li>
 
-            <div>
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                    </svg>
-                    <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                        <a href="https://laracasts.com">Laracasts</a>
-                    </h2>
-                </div>
+                        <li class="has-submenu parent-parent-menu-item">
+                            <a href="javascript:void(0)">Hosting</a><span class="menu-arrow"></span>
+                            <ul class="submenu megamenu">
+                                <li>
+                                    <ul>
+                                        <li><a href="hosting-shared.html" class="sub-menu-item"><img src="https://shreethemes.in/hostick/layouts/images/icons/shared.svg" class="avatar avatar-ex-sm me-2" alt=""> Shared Hosting</a></li>
+                                        <li><a href="hosting-vps.html" class="sub-menu-item"><img src="https://shreethemes.in/hostick/layouts/images/icons/vps.svg" class="avatar avatar-ex-sm me-2" alt=""> VPS Hosting</a></li>     
+                                        <li><a href="hosting-dedicated.html" class="sub-menu-item"><img src="https://shreethemes.in/hostick/layouts/images/icons/dedicated.svg" class="avatar avatar-ex-sm me-2" alt=""> Dedicated Server</a></li> 
+                                        <li><a href="hosting-cloud.html" class="sub-menu-item"><img src="https://shreethemes.in/hostick/layouts/images/icons/cloud.svg" class="avatar avatar-ex-sm me-2" alt=""> Cloud Hosting</a></li>
+                                        <li><a href="hosting-domain.html" class="sub-menu-item"><img src="https://shreethemes.in/hostick/layouts/images/icons/domain.svg" class="avatar avatar-ex-sm me-2" alt=""> Domain Name</a></li>
+                                    </ul>
+                                </li>
 
-                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                </p>
+                                <li>
+                                    <ul>
+                                        <li><a href="hosting-web.html" class="sub-menu-item"><img src="https://shreethemes.in/hostick/layouts/images/icons/web.svg" class="avatar avatar-ex-sm me-2" alt=""> Web Hosting</a></li>
+                                        <li><a href="hosting-reseller.html" class="sub-menu-item"><img src="https://shreethemes.in/hostick/layouts/images/icons/reseller.svg" class="avatar avatar-ex-sm me-2" alt=""> Reseller Hosting</a></li>  
+                                        <li><a href="hosting-wordpress.html" class="sub-menu-item"><img src="https://shreethemes.in/hostick/layouts/images/icons/wordpress.svg" class="avatar avatar-ex-sm me-2" alt=""> Worpress Server</a></li>  
+                                        <li><a href="hosting-email.html" class="sub-menu-item"><img src="https://shreethemes.in/hostick/layouts/images/icons/email.svg" class="avatar avatar-ex-sm me-2" alt=""> Email Server</a></li> 
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+        
+                        <li class="has-submenu parent-parent-menu-item">
+                            <a href="javascript:void(0)">Pages</a><span class="menu-arrow"></span>
+                            <ul class="submenu">
+                                <li><a href="page-about.html" class="sub-menu-item">Company</a></li>
+                                <li class="has-submenu parent-menu-item">
+                                    <a href="javascript:void(0)"> Blog</a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="page-blog.html" class="sub-menu-item">Blog</a></li>
+                                        <li><a href="page-blog-sidebar.html" class="sub-menu-item">Blog Sidebar</a></li>
+                                        <li><a href="page-blog-single.html" class="sub-menu-item">Single Blog</a></li>
+                                    </ul>  
+                                </li>
+                                <li><a href="page-faqs.html" class="sub-menu-item">FAQs</a></li>
+                                <li><a href="page-support.html" class="sub-menu-item">Support Center</a></li>
+                                <li><a href="page-privacy.html" class="sub-menu-item">Privacy Policy</a></li>
+                                <li><a href="page-terms.html" class="sub-menu-item">Terms & Conditions</a></li>
+                                <li class="has-submenu parent-menu-item">
+                                    <a href="javascript:void(0)"> Auth Pages</a><span class="submenu-arrow"></span>
+                                    <ul class="submenu">
+                                        <li><a href="page-login.html" class="sub-menu-item">Login</a></li>
+                                        <li><a href="page-signup.html" class="sub-menu-item">Signup</a></li>
+                                        <li><a href="page-forgot-password.html" class="sub-menu-item">Forgot Password</a></li>
+                                    </ul>  
+                                </li>
+                                <li><a href="page-404.html" class="sub-menu-item">404</a></li>
+                            </ul>
+                        </li>
 
-                <p class="mt-4 text-sm">
-                    <a href="https://laracasts.com" class="inline-flex items-center font-semibold text-indigo-700">
-                        Start watching Laracasts
+                        <li class="has-submenu parent-parent-menu-item">
+                            <a href="javascript:void(0)" class="sub-menu-item">Domains</a><span class="menu-arrow"></span>
+                            <ul class="submenu">
+                                <li><a href="domain-listing.html" class="sub-menu-item">Domain Listing</a></li>
+                                <li><a href="domian-detail.html" class="sub-menu-item">Domain Detail</a></li>
+                                <li><a href="cart.html" class="sub-menu-item">Cart</a></li>
+                                <li><a href="checkouts.html" class="sub-menu-item">Checkout</a></li>
+                                <li><a href="my-account.html" class="sub-menu-item">Account</a></li>
+                            </ul>
+                        </li>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="ml-1 w-5 h-5 fill-indigo-500">
-                            <path fill-rule="evenodd" d="M5 10a.75.75 0 01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5 3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0 11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </p>
-            </div>
-
-            <div>
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                    </svg>
-                    <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                        <a href="https://tailwindcss.com/">Tailwind</a>
-                    </h2>
-                </div>
-
-                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                    Laravel Jetstream is built with Tailwind, an amazing utility first CSS framework that doesn't get in your way. You'll be amazed how easily you can build and maintain fresh, modern designs with this wonderful framework at your fingertips.
-                </p>
-            </div>
-
-            <div>
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                    </svg>
-                    <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                        Authentication
-                    </h2>
-                </div>
-
-                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                    Authentication and registration views are included with Laravel Jetstream, as well as support for user email verification and resetting forgotten passwords. So, you're free to get started with what matters most: building your application.
-                </p>
-            </div>
-        </div>
-    </div>
+                        <li><a href="contact.html" class="sub-menu-item">Contact</a></li>
+                        <li><a href="https://1.envato.market/hostick-template" target="_blank" class="sub-menu-item">Download</a></li>
+                    </ul><!--end navigation menu-->
+                </div><!--end navigation-->
+            </div><!--end container-->
+        </header><!--end header-->
+        <!-- Navbar End -->
+        
 </template>

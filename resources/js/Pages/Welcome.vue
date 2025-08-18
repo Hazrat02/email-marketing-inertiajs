@@ -1,18 +1,435 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link } from "@inertiajs/vue3";
+import AppLayout from "../Layouts/AppLayout.vue";
 
 defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
+  canLogin: Boolean,
+  canRegister: Boolean,
+  laravelVersion: String,
+  phpVersion: String,
 });
 </script>
 
 <template>
-    <Head title="Welcome" />
+  <AppLayout>
+    <Head title="Welcome to the our services" />
+    <!-- Home Start -->
+    <section
+      class="bg-half-260 d-table w-100 bg-primary"
+      style="
+        background: url('https://shreethemes.in/hostick/layouts/images/bg/bg1.png')
+          top center;
+      "
+      id="home"
+    >
+      <div class="bg-overlay"></div>
+      <div class="container">
+        <div class="row mt-5 justify-content-center">
+          <div class="col-12">
+            <div class="title-heading text-center">
+              <h4 class="heading text-white title-dark mb-3">
+                SMTP & Email Marketing Services Provider
+              </h4>
+              <p class="text-white-50 para-desc mx-auto mb-0">
+                Send unlimited emails daily with ease. Manage campaigns,
+                automate emails, and grow your business with our reliable SMTP
+                and email marketing platform.
+              </p>
 
-    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+              <div class="mt-4">
+                <a href="javascript:void(0)" class="btn btn-primary mx-1"
+                  >Get Started</a
+                >
+                <a href="javascript:void(0)" class="btn btn-light mx-1"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+          <!--end col-->
+        </div>
+        <!--end row-->
+      </div>
+      <!--end container-->
+    </section>
+    <!--end section-->
+    <!-- Home End -->
+
+    <!-- Services Start -->
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-title text-center mb-4 pb-2">
+          <h4 class="title mb-3">Our Email Services</h4>
+          <p class="text-muted para-desc mx-auto mb-0">
+            Reliable SMTP and email marketing platform to send unlimited emails, manage campaigns, and grow your business.
+          </p>
+        </div>
+      </div>
+      <!--end col-->
+    </div>
+    <!--end row-->
+
+    <div class="row">
+      <!-- Service 1 -->
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="card services p-4 rounded-pill border-0">
+          <div class="icon text-center mb-4">
+            <img src="https://shreethemes.in/hostick/layouts/images/icons/shared.svg" alt="" />
+          </div>
+          <div class="card-body p-0 content">
+            <h5 class="mb-3">
+              <a href="#" class="title text-dark">SMTP Email Service</a>
+            </h5>
+            <p class="text-muted mb-3">
+              High deliverability email sending service using our secure SMTP servers.
+            </p>
+             
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="card services p-4 rounded-pill border-0">
+          <div class="icon text-center mb-4">
+            <img src="https://shreethemes.in/hostick/layouts/images/icons/vps.svg" alt="" />
+          </div>
+          <div class="card-body p-0 content">
+            <h5 class="mb-3">
+              <a href="#" class="title text-dark">Email Marketing Campaigns</a>
+            </h5>
+            <p class="text-muted mb-3">
+              Design, automate, and send marketing emails to reach your customers effectively.
+            </p>
+             
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="card services p-4 rounded-pill border-0">
+          <div class="icon text-center mb-4">
+            <img src="https://shreethemes.in/hostick/layouts/images/icons/dedicated.svg" alt="" />
+          </div>
+          <div class="card-body p-0 content">
+            <h5 class="mb-3">
+              <a href="#" class="title text-dark">Transactional Emails</a>
+            </h5>
+            <p class="text-muted mb-3">
+              Automatically send password resets, notifications, and order confirmations to users.
+            </p>
+             
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="card services p-4 rounded-pill border-0">
+          <div class="icon text-center mb-4">
+            <img src="https://shreethemes.in/hostick/layouts/images/icons/cloud.svg" alt="" />
+          </div>
+          <div class="card-body p-0 content">
+            <h5 class="mb-3">
+              <a href="#" class="title text-dark">Bulk Email Sending</a>
+            </h5>
+            <p class="text-muted mb-3">
+              Send thousands of emails at once with our optimized bulk email service.
+            </p>
+             
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="card services p-4 rounded-pill border-0">
+          <div class="icon text-center mb-4">
+            <img src="https://shreethemes.in/hostick/layouts/images/icons/reseller.svg" alt="" />
+          </div>
+          <div class="card-body p-0 content">
+            <h5 class="mb-3">
+              <a href="#" class="title text-dark">Email Analytics & Reports</a>
+            </h5>
+            <p class="text-muted mb-3">
+              Track open rates, clicks, bounces, and optimize your email campaigns.
+            </p>
+             
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="card services p-4 rounded-pill border-0">
+          <div class="icon text-center mb-4">
+            <img src="https://shreethemes.in/hostick/layouts/images/icons/domain.svg" alt="" />
+          </div>
+          <div class="card-body p-0 content">
+            <h5 class="mb-3">
+              <a href="#" class="title text-dark">Email Automation</a>
+            </h5>
+            <p class="text-muted mb-3">
+              Automate email sequences, reminders, and follow-ups to engage your audience.
+            </p>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+</section>
+<!--end section-->
+
+    <!-- Services End -->
+<!-- Price Start -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-title text-center mb-4 pb-2">
+          <h4 class="title mb-3">Popular Pricing Plans</h4>
+          <p class="text-muted para-desc mx-auto mb-0">
+            Choose the plan that fits your email marketing and SMTP needs. Send unlimited emails, automate campaigns, and grow your business.
+          </p>
+        </div>
+      </div>
+      <!--end col-->
+    </div>
+    <!--end row-->
+
+    <div class="row">
+      <!-- Plan 1 -->
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="card pricing hosting-rate border-0 rounded overflow-hidden">
+          <div class="plan-name p-4 border-bottom">
+            <h4 class="title mb-3">Starter</h4>
+            <p class="para text-muted mb-0">
+              Perfect for beginners. <strong>Free 1,000 emails</strong> per month.
+            </p>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex mb-3">
+              <span class="h6 text-muted mb-0 mt-2">$</span>
+              <span class="price text-primary h1 mb-0">9.99</span>
+              <span class="h6 text-muted align-self-end mb-1">/mo</span>
+            </div>
+            <ul class="feature-list list-unstyled mb-0">
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Up to <strong>1,000</strong> Emails/Month</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Email Automation</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Basic Analytics & Reporting</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Single SMTP Server</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Support via Email</li>
+            </ul>
+            <a href="javascript:void(0)" class="btn btn-primary mt-4">Get Started</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan 2 -->
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="card pricing hosting-rate best-plan border-0 rounded">
+          <div class="ribbon ribbon-right ribbon-warning overflow-hidden">
+            <span class="text-center d-block shadow small h6">Best</span>
+          </div>
+          <div class="plan-name p-4 border-bottom">
+            <h4 class="title mb-3">Business</h4>
+            <p class="para text-muted mb-0">
+              For growing businesses. <strong>Send up to 50,000 emails</strong> monthly.
+            </p>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex mb-3">
+              <span class="h6 text-muted mb-0 mt-2">$</span>
+              <span class="price text-primary h1 mb-0">29.99</span>
+              <span class="h6 text-muted align-self-end mb-1">/mo</span>
+            </div>
+            <ul class="feature-list list-unstyled mb-0">
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Up to <strong>50,000</strong> Emails/Month</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Email Automation & Sequences</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Advanced Analytics & Reporting</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Multiple SMTP Servers</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Priority Support</li>
+            </ul>
+            <a href="javascript:void(0)" class="btn btn-primary mt-4">Try It Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+        <div class="card pricing hosting-rate border-0 rounded overflow-hidden">
+          <div class="plan-name p-4 border-bottom">
+            <h4 class="title mb-3">Enterprise</h4>
+            <p class="para text-muted mb-0">
+              For large scale operations. <strong>Unlimited emails</strong> per month.
+            </p>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex mb-3">
+              <span class="h6 text-muted mb-0 mt-2">$</span>
+              <span class="price text-primary h1 mb-0">79.99</span>
+              <span class="h6 text-muted align-self-end mb-1">/mo</span>
+            </div>
+            <ul class="feature-list list-unstyled mb-0">
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i><strong>Unlimited</strong> Emails/Month</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Email Automation & Workflow</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Advanced Analytics & Deliverability Reports</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>Dedicated SMTP Servers</li>
+              <li class="text-muted"><i class="mdi mdi-arrow-right text-primary me-2"></i>24/7 Priority Support</li>
+            </ul>
+            <a href="javascript:void(0)" class="btn btn-primary mt-4">Get Started Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 mt-4 pt-2 text-center">
+        <div class="alert alert-light alert-pills mb-0 shadow" role="alert">
+          <span class="badge rounded-pill bg-primary me-1">Pricing</span>
+          <span class="content">
+            <a href="javascript:void(0)" class="text-primary">See plan details</a>
+            and choose the best plan for your email marketing needs.
+          </span>
+        </div>
+      </div>
+      <!--end col-->
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+</section>
+<!--end section-->
+<!-- FAQ Start -->
+<section class="section">
+
+  <div class="container mt-100 mt-60">
+    <div class="row align-items-center mb-4 pb-2">
+      <div class="col-md-6">
+        <div class="section-title">
+          <h4 class="title mb-md-0 mb-4">
+            Frequently Asked <br />
+            Questions
+          </h4>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="section-title">
+          <p class="text-muted para-desc mb-0">
+            Answers to the most common questions about our SMTP/email marketing services.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- FAQ 1 -->
+      <div class="col-md-6 col-12 mt-4 pt-2">
+        <div class="d-flex">
+          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <div class="flex-1">
+            <h5 class="mt-0">How does your email sending platform work?</h5>
+            <p class="answer text-muted mb-0">
+              Our platform allows you to send unlimited emails via secure SMTP servers, manage campaigns, and track delivery and open rates easily from your dashboard.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="col-md-6 col-12 mt-4 pt-2">
+        <div class="d-flex">
+          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <div class="flex-1">
+            <h5 class="mt-0">Can I send unlimited emails daily?</h5>
+            <p class="answer text-muted mb-0">
+              Yes! Depending on your subscription plan, you can send emails without daily limits, making it ideal for email marketing and newsletters.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="col-md-6 col-12 mt-4 pt-2">
+        <div class="d-flex">
+          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <div class="flex-1">
+            <h5 class="mt-0">How secure is my email account and data?</h5>
+            <p class="answer text-muted mb-0">
+              We use encrypted SMTP connections and secure storage for all data. Your email accounts, campaigns, and contact lists are fully protected.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="col-md-6 col-12 mt-4 pt-2">
+        <div class="d-flex">
+          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <div class="flex-1">
+            <h5 class="mt-0">Do you provide analytics for campaigns?</h5>
+            <p class="answer text-muted mb-0">
+              Yes! Our platform provides detailed reports on email delivery, open rates, clicks, and bounce rates to optimize your campaigns.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="col-md-6 col-12 mt-4 pt-2">
+        <div class="d-flex">
+          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <div class="flex-1">
+            <h5 class="mt-0">Can I integrate with my existing applications?</h5>
+            <p class="answer text-muted mb-0">
+              Absolutely! You can use our SMTP servers with your existing apps, CRMs, or websites to automate email sending seamlessly.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="col-md-6 col-12 mt-4 pt-2">
+        <div class="d-flex">
+          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <div class="flex-1">
+            <h5 class="mt-0">How can I contact support?</h5>
+            <p class="answer text-muted mb-0">
+              Our support team is available 24/7 via live chat, email, or phone to assist with any questions about your email campaigns or account setup.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!--end row-->
+
+    <div class="row mt-5 pt-4 justify-content-center">
+      <div class="col-12 text-center">
+        <div class="section-title">
+          <h4 class="title mb-3">Have a Question? Get in touch!</h4>
+          <p class="text-muted para-desc mx-auto">
+            Our team is ready to help you set up, optimize, and grow your email campaigns.
+          </p>
+          <a href="javascript:void(0)" class="btn btn-primary mt-4"><i class="mdi mdi-phone"></i> Contact us</a>
+        </div>
+      </div>
+      <!--end col-->
+    </div>
+    <!--end row-->
+  </div>
+  <!--end container-->
+</section>
+<!--end section-->
+
+    
+  </AppLayout>
+  <!-- <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
             <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</Link>
 
@@ -127,16 +544,8 @@ defineProps({
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <style>
-.bg-dots-darker {
-    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E");
-}
-@media (prefers-color-scheme: dark) {
-    .dark\:bg-dots-lighter {
-        background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E");
-    }
-}
 </style>
