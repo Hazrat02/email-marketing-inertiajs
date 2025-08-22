@@ -331,7 +331,7 @@ defineProps({
       <!-- FAQ 1 -->
       <div class="col-md-6 col-12 mt-4 pt-2">
         <div class="d-flex">
-          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <i  class="fea icon-ex-md text-primary me-2 mt-1"></i>
           <div class="flex-1">
             <h5 class="mt-0">How does your email sending platform work?</h5>
             <p class="answer text-muted mb-0">
@@ -344,7 +344,7 @@ defineProps({
       <!-- FAQ 2 -->
       <div class="col-md-6 col-12 mt-4 pt-2">
         <div class="d-flex">
-          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <i    class="fea icon-ex-md text-primary me-2 mt-1"></i>
           <div class="flex-1">
             <h5 class="mt-0">Can I send unlimited emails daily?</h5>
             <p class="answer text-muted mb-0">
@@ -357,7 +357,7 @@ defineProps({
       <!-- FAQ 3 -->
       <div class="col-md-6 col-12 mt-4 pt-2">
         <div class="d-flex">
-          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <i    class="fea icon-ex-md text-primary me-2 mt-1"></i>
           <div class="flex-1">
             <h5 class="mt-0">How secure is my email account and data?</h5>
             <p class="answer text-muted mb-0">
@@ -370,7 +370,7 @@ defineProps({
       <!-- FAQ 4 -->
       <div class="col-md-6 col-12 mt-4 pt-2">
         <div class="d-flex">
-          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <i    class="fea icon-ex-md text-primary me-2 mt-1"></i>
           <div class="flex-1">
             <h5 class="mt-0">Do you provide analytics for campaigns?</h5>
             <p class="answer text-muted mb-0">
@@ -383,7 +383,7 @@ defineProps({
       <!-- FAQ 5 -->
       <div class="col-md-6 col-12 mt-4 pt-2">
         <div class="d-flex">
-          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <i    class="fea icon-ex-md text-primary me-2 mt-1"></i>
           <div class="flex-1">
             <h5 class="mt-0">Can I integrate with my existing applications?</h5>
             <p class="answer text-muted mb-0">
@@ -396,7 +396,7 @@ defineProps({
       <!-- FAQ 6 -->
       <div class="col-md-6 col-12 mt-4 pt-2">
         <div class="d-flex">
-          <i data-feather="help-circle" class="fea icon-ex-md text-primary me-2 mt-1"></i>
+          <i    class="fea icon-ex-md text-primary me-2 mt-1"></i>
           <div class="flex-1">
             <h5 class="mt-0">How can I contact support?</h5>
             <p class="answer text-muted mb-0">

@@ -40,7 +40,7 @@ import '../assets/js/bootstrap.bundle.min.js'
 
 import  '../assets/js/tiny-slider.js'
 import '../assets/js/tiny-slider-init.js'
-import  '../assets/js/feather2.min.js' 
+// import  '../assets/js/feather2.min.js' 
 import  '../assets/js/switcher.js'
 import  '../assets/js/app.js'
 

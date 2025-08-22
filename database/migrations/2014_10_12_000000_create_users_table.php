@@ -17,6 +17,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+             $table->string('plan')->default('free');
+    $table->integer('limit')->default(10);
+    $table->mediumText('template')->nullable();
+    $table->decimal('balance', 12, 2)->default(0.00);
+
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

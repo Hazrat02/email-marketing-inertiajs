@@ -2544,9 +2544,14 @@ button:not(:disabled) {
 .form-label,
 .form-check-label {
     font-size: 14px;
-    font-weight: 700
+    font-weight: 700;
+    color: white;
 }
 
+.form-control::placeholder {
+    color: #9bacc4; /* Placeholder text color */
+    opacity: 1;      /* Optional: make sure the color is fully opaque */
+}
 .form-control {
     box-shadow: none;
     background-color: #fff;
