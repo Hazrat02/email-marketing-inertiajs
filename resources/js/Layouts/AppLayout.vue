@@ -205,8 +205,8 @@ const logout = () => {
                 style="width: 200px"
                 v-if="$page.props.auth.user"
               >
-                <a class="dropdown-item text-dark" href="my-account.html"
-                  ><i class="uil uil-user align-middle me-1"></i> Account</a
+                <Link class="dropdown-item text-dark" :href="route('dashboard')"
+                  ><i class="uil uil-user align-middle me-1"></i> Dashboard</Link
                 >
                 <a class="dropdown-item text-dark" href="#"
                   ><i class="uil uil-clipboard-notes align-middle me-1"></i>
@@ -363,71 +363,7 @@ const logout = () => {
               </ul>
             </li>
 
-            <li class="has-submenu parent-parent-menu-item">
-              <a href="javascript:void(0)">Pages</a
-              ><span class="menu-arrow"></span>
-              <ul class="submenu">
-                <li>
-                  <a href="page-about.html" class="sub-menu-item">Company</a>
-                </li>
-                <li class="has-submenu parent-menu-item">
-                  <a href="javascript:void(0)"> Blog</a
-                  ><span class="submenu-arrow"></span>
-                  <ul class="submenu">
-                    <li>
-                      <a href="page-blog.html" class="sub-menu-item">Blog</a>
-                    </li>
-                    <li>
-                      <a href="page-blog-sidebar.html" class="sub-menu-item"
-                        >Blog Sidebar</a
-                      >
-                    </li>
-                    <li>
-                      <a href="page-blog-single.html" class="sub-menu-item"
-                        >Single Blog</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="page-faqs.html" class="sub-menu-item">FAQs</a></li>
-                <li>
-                  <a href="page-support.html" class="sub-menu-item"
-                    >Support Center</a
-                  >
-                </li>
-                <li>
-                  <a href="page-privacy.html" class="sub-menu-item"
-                    >Privacy Policy</a
-                  >
-                </li>
-                <li>
-                  <a href="page-terms.html" class="sub-menu-item"
-                    >Terms & Conditions</a
-                  >
-                </li>
-                <li class="has-submenu parent-menu-item">
-                  <a href="javascript:void(0)"> Auth Pages</a
-                  ><span class="submenu-arrow"></span>
-                  <ul class="submenu">
-                    <li>
-                      <a href="page-login.html" class="sub-menu-item">Login</a>
-                    </li>
-                    <li>
-                      <a href="page-signup.html" class="sub-menu-item"
-                        >Signup</a
-                      >
-                    </li>
-                    <li>
-                      <a href="page-forgot-password.html" class="sub-menu-item"
-                        >Forgot Password</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="page-404.html" class="sub-menu-item">404</a></li>
-              </ul>
-            </li>
-
+            
             <li class="has-submenu parent-parent-menu-item">
               <a href="javascript:void(0)" class="sub-menu-item">Domains</a
               ><span class="menu-arrow"></span>
