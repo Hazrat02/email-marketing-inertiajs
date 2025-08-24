@@ -3,7 +3,11 @@
 namespace App\Jobs;
 
 use App\Mail\ContactMail;
+use App\Models\order;
+use App\Models\order_email_log;
 use App\Models\Smtp;
+use App\Models\User;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\SerializesModels;
@@ -22,8 +26,10 @@ class SendBulkMailJob implements ShouldQueue
 
     protected $fromName;
     protected $fromEmail;
+    protected $order_id;
+    protected $user_id;
 
-    public function __construct($smtpId, $to, $fromName, $fromEmail, $subject, $body)
+    public function __construct($smtpId, $to, $fromName, $fromEmail, $subject, $body, $order_id, $user_id)
     {
 
 
@@ -34,17 +40,15 @@ class SendBulkMailJob implements ShouldQueue
         $this->fromEmail = $fromEmail;
         $this->subject = $subject;
         $this->body = $body;
+        $this->order_id = $order_id;
+        $this->user_id = $user_id;
     }
 
     public function handle()
     {
         $smtp = Smtp::find($this->smtpId);
-        if (!$smtp) {
-            return;
-        }
-          if ($smtp->limit <= 0) {
-        return ;
-    }
+        $order =order::find($this->order_id);
+
 
         // Change mail config dynamically
         config([
@@ -56,22 +60,30 @@ class SendBulkMailJob implements ShouldQueue
             'mail.from.address'            => $smtp->from_address,
             'mail.from.name'               => $this->fromName,
         ]);
-
         try {
-            Mail::to($this->to)
-                ->send(new ContactMail(
+            Mail::to($this->to)->send(
+                new ContactMail(
                     $this->fromName,
                     $this->fromEmail,
                     $this->subject,
                     $this->body
-                ));
+                )
+            );
 
-            // ✅ Reduce limit only if mail is sent successfully
-            $smtp->decrement('limit');
-        } catch (\Exception $e) {
-            // You can log the error for debugging
+            $order->increment('success');
+
+
+        } catch (\Throwable $th) {
+            order_email_log::create(
+                [
+                    'order_id' => $this->order_id,
+                    'user_id' => $this->user_id,
+                    'email' => $this->to,
+                    'status' => 'failed',
+                    'response' => $th->getMessage()
+                ]
+            );
             return;
         }
-        app('queue.worker')->stop(0);
     }
 }

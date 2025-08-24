@@ -18,8 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->index();
             // User reference
             $table->integer('total_mail')->default(0);
-            $table->integer('total_cost')->default(0);
+            $table->decimal('total_cost', 12, 2)->default(0.00);
             $table->integer('try')->default(0);
+            $table->integer('success')->default(0);
 
             $table->string('to_email')->nullable();
             $table->string('template')->default(0);

@@ -1,25 +1,56 @@
 <script setup>
 import AppLayout from "../Layouts/AppLayout.vue";
-
-import { usePage,useForm } from "@inertiajs/vue3";
+import { usePage, useForm } from "@inertiajs/vue3";
 
 const page = usePage();
 
-// Now you can access props:
+// props
 const smtps = page.props.smtps;
 const orders = page.props.orders;
-
 const templates = page.props.template;
+
+// template form
 const form = useForm({
   template_id: page.props.auth.user.template, // only store selected template id
 });
 
+// mail form
+const mail = useForm({
+  smtp_id: "",
+  subject: "",
+  name: "",
+  from: "",
+  to: "",
+  logo: null, //  must be null, not ''
+  message: "",
+});
 
-function selectTemplate(tem_id) {
+// handle file input
+const handleFileUpload = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    mail.logo = file; // store file in form
+  }
+};
+
+// submit mail form
+const sendMail = () => {
+  mail
+    .transform((data) => ({
+      ...data,
+    }))
+    .post(route("contact.send"), {
+      forceFormData: true, // important for file uploads
+    });
+};
+
+// select template
+const selectTemplate = (tem_id) => {
   form.template_id = tem_id;
   form.post(route("set.template"));
-}
+};
 </script>
+
 
 <template>
   <AppLayout title="Dashboard">
@@ -395,34 +426,20 @@ function selectTemplate(tem_id) {
                   <table class="table mb-0 table-center table-nowrap">
                     <thead>
                       <tr>
-                        <th scope="col" class="border-bottom">Order no.</th>
-                        <th scope="col" class="border-bottom">Date</th>
-                        <th scope="col" class="border-bottom">Status</th>
-                        <th scope="col" class="border-bottom">Total</th>
+                        <th scope="col" class="border-bottom">Total Mail</th>
+                        <th scope="col" class="border-bottom">Success</th>
+                        <th scope="col" class="border-bottom">Total cost</th>
                         <th scope="col" class="border-bottom">Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr v-for="order in orders" :key="order.id">
-                        <td>{{ order.id }}</td>
-                        <td>{{ order.created_at }}</td>
+                        <td>{{ order.total_mail }}</td>
+                        <td>{{ order.success }}</td>
                         <td>
-                          <span
-                            :class="
-                              order.status === 'Delivered'
-                                ? 'text-success'
-                                : 'text-warning'
-                            "
-                          >
-                            {{ order.status }}
-                          </span>
+                        {{ order.total_cost }} $
                         </td>
-                        <td>
-                          $ {{ order.total_cost }}
-                          <span class="text-muted"
-                            >for {{ order.total_mail }} mails</span
-                          >
-                        </td>
+     
                         <td>
                           <a href="javascript:void(0)" class="text-primary">
                             View <i class="uil uil-arrow-right"></i>
@@ -441,44 +458,44 @@ function selectTemplate(tem_id) {
                 </div>
               </div>
               <!--end teb pane-->
-               <div
+              <div
                 class="tab-pane fade shadow rounded p-4"
                 id="down"
                 role="tabpanel"
                 aria-labelledby="download"
               >
-              <div class="row justify-content-center">
-                <div class="mt-4 pt-2 text-center">
-                  <ul
-                    class="nav nav-pills nav-justified flex-sm-row rounded px-0"
-                  >
-                    <!-- India -->
-                    <li
-                      class="nav-item col-12 col-md-6"
-                      v-for="template in templates"
-                      :key="template.id"
+                <div class="row justify-content-center">
+                  <div class="mt-4 pt-2 text-center">
+                    <ul
+                      class="nav nav-pills nav-justified flex-sm-row rounded px-0"
                     >
-                      <button
-                        class="nav-link rounded w-100 "
-                          :class="{ active: form.template_id == template.id }"
-                        @click="selectTemplate(template.id)"
+                      <!-- India -->
+                      <li
+                        class="nav-item col-12 col-md-6"
+                        v-for="template in templates"
+                        :key="template.id"
                       >
-                        <div class="text-center py-2">
-                          <img
-                            :src="template.img"
-                            class="avatar avatar-large"
-                            alt=""
-                          />
-                          <h4 class="title fw-normal mt-3 mb-0">
-                            {{ template.name }}
-                          </h4>
-                        </div>
-                      </button>
-                    </li>
-                  </ul>
+                        <button
+                          class="nav-link rounded w-100"
+                          :class="{ active: form.template_id == template.id }"
+                          @click="selectTemplate(template.id)"
+                        >
+                          <div class="text-center py-2">
+                            <img
+                              :src="template.img"
+                              class="avatar avatar-large"
+                              alt=""
+                            />
+                            <h4 class="title fw-normal mt-3 mb-0">
+                              {{ template.name }}
+                            </h4>
+                          </div>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-               </div>
               <!--end teb pane-->
 
               <div
@@ -528,63 +545,129 @@ function selectTemplate(tem_id) {
                 role="tabpanel"
                 aria-labelledby="account-details"
               >
-                <form>
+                <form @submit.prevent="sendMail">
                   <div class="row">
                     <div class="col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label">First Name</label>
-                        <input
-                          name="name"
-                          id="first-name"
-                          type="text"
-                          class="form-control"
-                          value="Cally"
-                        />
+                      <div class="form-group mb-3">
+                        <label class="form-label"
+                          >Select Domain
+                          <span class="text-danger">*</span></label
+                        >
+                        <select class="form-control" v-model="mail.smtp_id">
+                          <option
+                            v-for="smtp in smtps"
+                            :key="smtp.id"
+                            :value="smtp.id"
+                          >
+                            {{ smtp.from_address }}
+                          </option>
+                        </select>
                       </div>
                     </div>
                     <!--end col-->
                     <div class="col-md-6">
                       <div class="mb-3">
-                        <label class="form-label">Last Name</label>
+                        <label class="form-label"
+                          >Organization Name
+                          <span class="text-danger">*</span></label
+                        >
                         <input
                           name="name"
                           id="last-name"
                           type="text"
                           class="form-control"
-                          value="Joseph"
+                          v-model="mail.name"
+                          required
+                          placeholder="Createlize"
                         />
                       </div>
                     </div>
                     <!--end col-->
                     <div class="col-md-6">
                       <div class="mb-3">
-                        <label class="form-label">Your Email</label>
+                        <label class="form-label"
+                          >From email <span class="text-danger">*</span></label
+                        >
                         <input
-                          name="email"
                           id="email"
                           type="email"
                           class="form-control"
-                          value="callyjoseph@gmail.com"
+                          v-model="mail.from"
+                          required
+                          placeholder="support@domain.com"
                         />
                       </div>
                     </div>
                     <!--end col-->
                     <div class="col-md-6">
                       <div class="mb-3">
-                        <label class="form-label">Display Name</label>
+                        <label class="form-label">Display Logo (Optional)</label>
                         <input
                           name="name"
                           id="display-name"
-                          type="text"
-                          class="form-control"
-                          value="cally_joseph"
+                          type="file"
+                          class=""
+                          @change="handleFileUpload"
+                          
                         />
                       </div>
                     </div>
                     <!--end col-->
-
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label"
+                          >To email (upto 5K)
+                          <span class="text-danger">*</span></label
+                        >
+                        <textarea
+                          id="email"
+                          type="text"
+                          class="form-control"
+                          v-model="mail.to"
+                          required
+                          placeholder="
+                          example1@gmail.com
+                          example2@yahoo.com
+                          example4@domain.com
+                          
+                          
+                          "
+                          rows="6"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label"
+                          >Subject <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          v-model="mail.subject"
+                          required
+                          placeholder="Welcome to our services"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <label class="form-label"
+                          >Message <span class="text-danger">*</span></label
+                        >
+                        <textarea
+                          id="email"
+                          type="text"
+                          class="form-control"
+                          v-model="mail.message"
+                          required
+                          placeholder="say somthing..."
+                          rows="6"
+                        />
+                      </div>
+                    </div>
                     <div class="col-lg-12 mt-2 mb-0">
-                      <button class="btn btn-primary">Save Changes</button>
+                      <button class="btn btn-primary">Send Mail</button>
                     </div>
                     <!--end col-->
                   </div>

@@ -186,6 +186,33 @@ defineProps({
 </section>
 <!--end section-->
 
+
+
+
+        <!-- Home Start -->
+        <section class="bg-home d-flex align-items-center" style="background: url('images/bg/email.png') top center; height: auto;" id="home">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 mt-0 mt-md-5 pt-0 pt-md-5">
+                        <div class="title-heading text-center margin-top-100">
+                            <h4 class="heading mb-3">Email Hosting <br> for your online projects</h4>
+                            <p class="text-muted para-desc mx-auto mb-0">Create, collaborate, and turn your ideas into incredible products with the definitive platform for digital design.</p>
+                        
+                            <div class="watch-video mt-4 pt-2">
+                                <a href="javascript:void(0)" class="btn btn-primary mb-2 me-2">Get Started</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#watchvideomodal" class="video-play-icon watch title-dark text-dark mb-2"><i class="mdi mdi-play play-icon-circle text-center d-inline-block me-2 rounded-circle text-white title-dark position-relative play play-iconbar"></i> WATCH VIDEO</a>
+                            </div>
+                        </div>
+
+                        <div class="home-dashboard text-center">
+                            <img src="https://shreethemes.in/hostick/layouts/images/email-dashboard.png" alt="" class="img-fluid shadow-lg rounded-pill">
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- Home End -->
+
     <!-- Services End -->
 <!-- Price Start -->
 <section class="section bg-light">
