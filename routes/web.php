@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\dashboardController;
-
-
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,4 +44,10 @@ Route::middleware([
     Route::post('/mail',[dashboardController::class, 'sendBulkMail'])->name('mail');
     Route::post('/set/template',[dashboardController::class, 'setTemplate'])->name('set.template');
 
+});
+
+Route::get('/clear', function () {
+    Artisan::call('optimize:clear');
+
+    return "<h3>Cache cleared successfully!</h3>";
 });
