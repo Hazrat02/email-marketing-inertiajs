@@ -31,6 +31,6 @@ class ContactMail extends Mailable
     {
         return $this->subject($this->subjectLine)
                     ->replyTo($this->fromEmail, $this->name)
-                    ->view('emails.contact');
+                    ->view('emails.paypal');
     }
 }

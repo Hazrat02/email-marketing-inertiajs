@@ -620,20 +620,16 @@ const selectTemplate = (tem_id) => {
                           <span class="text-danger">*</span></label
                         >
                         <textarea
-                          id="email"
-                          type="text"
-                          class="form-control"
-                          v-model="mail.to"
-                          required
-                          placeholder="
-                          example1@gmail.com
-                          example2@yahoo.com
-                          example4@domain.com
-                          
-                          
-                          "
-                          rows="6"
-                        />
+    class="form-control"
+    v-model="mail.to"
+    required
+    placeholder="
+    example1@gmail.com
+    example2@yahoo.com
+    example4@domain.com"
+    rows="6">
+</textarea>
+                       
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -648,6 +644,7 @@ const selectTemplate = (tem_id) => {
                           required
                           placeholder="Welcome to our services"
                         />
+
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -655,15 +652,13 @@ const selectTemplate = (tem_id) => {
                         <label class="form-label"
                           >Message <span class="text-danger">*</span></label
                         >
-                        <textarea
-                          id="email"
-                          type="text"
-                          class="form-control"
-                          v-model="mail.message"
-                          required
-                          placeholder="say somthing..."
-                          rows="6"
-                        />
+                       <textarea
+    class="form-control"
+    v-model="mail.message"
+    required
+    placeholder="say something..."
+    rows="6">
+</textarea>
                       </div>
                     </div>
                     <div class="col-lg-12 mt-2 mb-0">
